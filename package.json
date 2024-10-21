@@ -1,0 +1,53 @@
+{
+  "name": "lepsch.com",
+  "version": "2024.10.21",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "dev": "react-router dev",
+    "build": "react-router build",
+    "postbuild": "npm-run-all -p 'postbuild:*'",
+    "postbuild:clean": "rimraf build/client/tarteaucitronjs/.github build/client/tarteaucitronjs/css/tarteaucitron.css",
+    "postbuild:patch": "node patch_build.cjs",
+    "postbuild:prettier": "npm-run-all prettier:sitemap",
+    "clean": "rimraf build",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc",
+    "prettier:app": "prettier -w .",
+    "prettier:sitemap": "prettier --plugin=@prettier/plugin-xml --tab-width 2 --ignore-path /dev/null --xml-whitespace-sensitivity ignore -w ./build/client/sitemap.xml"
+  },
+  "dependencies": {
+    "@react-router/fs-routes": "^7.0.0-pre.1",
+    "@react-router/node": "^7.0.0-pre.1",
+    "@react-router/serve": "^7.0.0-pre.1",
+    "clsx": "^2.1.1",
+    "isbot": "^5",
+    "normalize.css": "^8.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router": "^7.0.0-pre.1",
+    "tarteaucitronjs": "^1.19.0"
+  },
+  "devDependencies": {
+    "@prettier/plugin-xml": "^3.4.1",
+    "@react-router/dev": "^7.0.0-pre.1",
+    "@total-typescript/ts-reset": "^0.6.1",
+    "@types/bun": "^1.1.11",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "sass-embedded": "^1.80.3",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-sitemap": "^0.7.1",
+    "vite-plugin-svgr": "^4.2.0",
+    "vite-tsconfig-paths": "^5.0.1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

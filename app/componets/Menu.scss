@@ -1,0 +1,79 @@
+.Menu {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 0;
+  background: var(--background);
+  background: linear-gradient(180deg, var(--background) 90%, transparent 100%);
+  font-weight: bold;
+
+  .menu-content {
+    overflow: visible !important;
+    display: flex;
+    list-style: none;
+    overflow-x: auto;
+    gap: 0.5ch;
+
+    &::marker {
+      color: var(--color-active);
+    }
+  }
+
+  .menu-item {
+    position: relative;
+  }
+
+  .menu-item a {
+    padding: 0 1ch;
+    transform: scaleY(1.25);
+    position: relative;
+    display: inline-block;
+    height: 1.5em;
+    text-transform: uppercase;
+    transition: all 0.1s;
+
+    &::after {
+      transition: all 0.1s;
+      content: " ";
+      position: absolute;
+      display: block;
+      right: 0;
+      bottom: 0px;
+      left: 0;
+      height: 2px;
+      background-color: var(--color-subtle);
+    }
+
+    &:hover,
+    &.active {
+      color: var(--color-active);
+      filter: drop-shadow(0 0 1em var(--color-active));
+      text-shadow: 0 0 0.1em var(--color-active);
+    }
+
+    &:hover:after,
+    &.active::after {
+      background-color: var(--color-active);
+      filter: drop-shadow(0 0 1em var(--color-active));
+    }
+  }
+
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+  }
+
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+  }
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+  }
+
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+  }
+}

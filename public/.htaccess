@@ -1,0 +1,41 @@
+# Enable runtime rewriting engine (https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriteengine)
+RewriteEngine on
+
+# Disable trailing slash redirects (https://httpd.apache.org/docs/current/mod/mod_dir.html#directoryslash)
+DirectorySlash Off
+# Disable listing of the directory (https://httpd.apache.org/docs/current/mod/core.html#options)
+Options -Indexes
+
+# Force HTTPS (Enabled automatically with SSL on)
+## HTTPS - "on" if the request uses https (https://httpd.apache.org/docs/current/expr.html)
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+# Header always set Content-Security-Policy "upgrade-insecure-requests;"
+
+# Prepend `www` and redirect (doesn't work for sub domains)
+## IF the host doesn't start with `www.` (NC=case insensitive)
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+## THEN prepend it with `www.` and redirect (L=Stop - don't apply any more rules, NE=Prevent hexcode escaping of special characters, R=Forces an external redirect)
+RewriteRule ^ %{REQUEST_SCHEME}://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
+
+# Add trailing slash for directories (server-side)
+# RewriteCond %{REQUEST_FILENAME} -d
+# RewriteRule ^(.+[^/])$ $1/
+
+# Redirect directory `<dir>` to `<dir>/index.php` (server-side)
+## Match directories without a trailing slash (https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriteoptions)
+RewriteOptions AllowNoSlash
+## IF the filename is a directory
+RewriteCond %{REQUEST_FILENAME} -d
+## THEN append to it the index file (L=Stop - don't apply any more rules)
+RewriteRule ^(.+)$ $1/index.php [L]
+
+# Redirect not found files or directories to root dir (`/`)
+## IF it's not a file
+RewriteCond "%{REQUEST_FILENAME}" !-f
+## AND IF it's not a directory
+RewriteCond "%{REQUEST_FILENAME}" !-d
+## THEN redirect to the root dir (L=Stop - don't apply any more rules, R=Forces an external redirect)
+RewriteRule ^ / [L,R=301]
+
+ErrorDocument 404 /index.php

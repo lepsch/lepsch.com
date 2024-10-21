@@ -1,7 +1,6 @@
-/* eslint-disable no-undef, @typescript-eslint/no-var-requires */
-const fs = require("node:fs/promises")
-const path = require("node:path")
-const { glob } = require("glob")
+import fs from "node:fs/promises"
+import path from "node:path"
+import { glob } from "glob"
 
 const PHP = `<?php
 session_set_cookie_params(["SameSite" => "Strict"]);
@@ -10,7 +9,7 @@ session_start();
 `
 
 const main = async () => {
-  const result = await glob(path.join(__dirname, "build", "**", "index.html"), {
+  const result = await glob(path.join(import.meta.dirname, "build", "**", "index.html"), {
     ignore: ["**/securimage/**", "**/tarteaucitronjs/**"],
   })
   for (const file of result) {
@@ -22,7 +21,9 @@ const main = async () => {
   }
 }
 
-main().catch((err) => {
+try {
+  await main()
+} catch (err) {
   console.error(err)
   process.exit(1)
-})
+}

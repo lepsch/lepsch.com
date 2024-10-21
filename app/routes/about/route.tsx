@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable @stylistic/jsx-one-expression-per-line */
 import { Link } from "react-router"
 import { Page } from "~/componets"
 import osk from "~/assets/osk.png"

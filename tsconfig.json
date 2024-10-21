@@ -113,6 +113,10 @@
     "plugins": [{ "name": "@react-router/dev" }]
   },
   "include": [
-    "app"
+    "app",
+    "eslint-plugins.d.ts",
+    "eslint.config.js",
+    "patch_build.js",
+    "vite.config.ts"
   ]
 }

@@ -4,7 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths"
 import sitemap from "vite-plugin-sitemap"
 import svgr from "vite-plugin-svgr"
 
-export default defineConfig({
+export default defineConfig(({ command, isSsrBuild }) => ({
   plugins: [
     reactRouter({
       prerender: true,
@@ -47,4 +47,25 @@ export default defineConfig({
       },
     },
   },
-})
+  build: {
+    rollupOptions: {
+      ...(isSsrBuild
+        ? {}
+        : {
+            // Compile a separate entry-point for sourcing it from `<script />`
+            input: ["./app/tarteaucitron-init.ts"],
+            output: {
+              entryFileNames: (chunkInfo) =>
+                chunkInfo.name === "tarteaucitron-init" ? "assets/[name].js" : "assets/[name]-[hash].js",
+            },
+          }),
+    },
+  },
+  define: {
+    // For dev-server set it to the source code itself. Otherwise, set it
+    // to the compiled asset
+    TARTEAUCITRON_INIT_URL: JSON.stringify(
+      command === "build" ? "/assets/tarteaucitron-init.js" : "/app/tarteaucitron-init.ts",
+    ),
+  },
+}))

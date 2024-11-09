@@ -12,7 +12,7 @@ export const loader = () => {
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => [
-  { property: "og:updated_time", content: data!.updatedTime },
+  ...(data ? [{ property: "og:updated_time", content: data.updatedTime }] : []),
 ]
 
 export const links: LinksFunction = () => [
@@ -63,10 +63,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
         <script src="/tarteaucitronjs/tarteaucitron.min.js"></script>
         <script src={TARTEAUCITRON_INIT_URL} />
-
-        {/* <script type="text/javascript">
-          tarteaucitron.user.gtagUa = 'G-1LG79LDQTT'; (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
-        </script> */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html:
+              'tarteaucitron.user.gtagUa = "G-PMLP8XPFL5"; (tarteaucitron.job = tarteaucitron.job || []).push("gtag");',
+          }}
+        ></script>
         <Meta />
         <Links />
       </head>

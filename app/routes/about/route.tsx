@@ -1,10 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Link } from "react-router"
+import { Link, type LinksFunction } from "react-router"
+import { canonicalPath } from "~/canonical-path"
 import { Page } from "~/componets"
 import osk from "~/assets/osk.png"
 import msx from "~/assets/msx-expert.png"
 import xt from "~/assets/pc-xt.png"
 import "./styles.scss"
+
+export const links: LinksFunction = () => [
+  { rel: "canonical", href: `https://www.lepsch.com${canonicalPath.about}` },
+]
 
 function AboutPage() {
   return (

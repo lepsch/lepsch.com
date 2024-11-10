@@ -4,12 +4,12 @@ import "./Projects.scss"
 export function Projects() {
   return (
     <div className="Projects">
-      <p>DLAPACK - Dart Lapack</p>
-      <p>bezier_kit</p>
-      <p>lz4</p>
-      <p>miniz</p>
-      <p>async_protobuf</p>
       <Link to="https://force.lepsch.com">FORCE - The Force Project</Link>
+      <p className="disabled">Dart Lapack (TBP)</p>
+      <p className="disabled">bezier_kit (TBP)</p>
+      <p className="disabled">lz4 (TBP)</p>
+      <p className="disabled">miniz (TBP)</p>
+      <p className="disabled">async_protobuf (TBP)</p>
     </div>
   )
 }

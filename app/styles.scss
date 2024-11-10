@@ -4,6 +4,7 @@
 :root {
   --color-active: #33ff33;
   --color-subtle: hsl(120, 100%, 30%);
+  --color-disabled: hsl(120, 100%, 20%);
   --background: #282828;
 }
 
@@ -59,6 +60,10 @@ a {
     text-shadow: 0 0 0.1em var(--color-active);
     filter: drop-shadow(0 0 1em var(--color-active));
   }
+}
+
+.disabled {
+  color: var(--color-disabled);
 }
 
 div#tarteaucitronRoot {

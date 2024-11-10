@@ -30,16 +30,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Force Fortran - The Force Project</title>
+        <title>GG - The Projects</title>
         <meta name="description" content="Force Fortran - The Force Project" />
 
-        <meta name="theme-color" content="#AA5050" />
+        <meta name="theme-color" content="#33ff33" />
         <meta content="Force Fortran" name="application-name" />
         <meta content="yes" name="mobile-web-app-capable" />
         <meta content="yes" name="apple-mobile-web-app-capable" />
         <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
         <meta content="Force Fortran" name="apple-mobile-web-app-title" />
-        <meta content="#AA5050" name="msapplication-TileColor" />
+        <meta content="#33ff33" name="msapplication-TileColor" />
         <meta content="https://www.lepsch.com/social.jpg" name="msapplication-TileImage" />
         {/* <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@DucklyHQ" /> */}

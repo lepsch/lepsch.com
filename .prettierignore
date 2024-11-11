@@ -4,3 +4,4 @@
 /node_modules
 /public
 vite.config.*.timestamp-*
+tsconfig.json

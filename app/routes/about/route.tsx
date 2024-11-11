@@ -7,9 +7,7 @@ import msx from "~/assets/msx-expert.png"
 import xt from "~/assets/pc-xt.png"
 import "./styles.scss"
 
-export const links: LinksFunction = () => [
-  { rel: "canonical", href: `https://www.lepsch.com${canonicalPath.about}` },
-]
+export const links: LinksFunction = () => [{ rel: "canonical", href: `https://www.lepsch.com${canonicalPath.about}` }]
 
 function AboutPage() {
   return (

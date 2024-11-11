@@ -1,6 +1,6 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router"
 import type { LinksFunction, MetaFunction } from "react-router"
-import { HOSTNAME } from "./constants"
+import { BASE_URL, DOMAIN } from "./constants"
 // import type * as Route from "./+types.root"
 
 import "normalize.css"
@@ -46,17 +46,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
         <meta content={title} name="apple-mobile-web-app-title" />
         <meta content="#33ff33" name="msapplication-TileColor" />
-        <meta content={`https://${HOSTNAME}/guilherme-lepsch.jpg`} name="msapplication-TileImage" />
-        {/* <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@DucklyHQ" /> */}
-        <meta property="og:image" content={`https://${HOSTNAME}/guilherme-lepsch.jpg`} />
+        <meta content={`${BASE_URL}/guilherme-lepsch.jpg`} name="msapplication-TileImage" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content={DOMAIN} />
+        <meta property="twitter:url" content={BASE_URL} />
+        <meta name="twitter:title" content={`${title} - ${subtitle}`} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={`${BASE_URL}/guilherme-lepsch.jpg`} />
+
+        <meta property="og:image" content={`${BASE_URL}/guilherme-lepsch.jpg`} />
         <meta property="og:image:alt" content={`${title} - ${subtitle}`} />
         <meta property="og:image:width" content="884" />
         <meta property="og:image:height" content="881" />
         <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:locale" content="en_PT" />
         <meta property="og:site_name" content={`${title} - ${subtitle}`} />
-        <meta property="og:url" content={`https://${HOSTNAME}`} />
+        <meta property="og:url" content={BASE_URL} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={`${title} - ${subtitle}`} />
         <meta property="og:description" content={description} />

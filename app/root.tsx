@@ -1,5 +1,6 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router"
 import type { LinksFunction, MetaFunction } from "react-router"
+import { HOSTNAME } from "./constants"
 // import type * as Route from "./+types.root"
 
 import "normalize.css"
@@ -23,6 +24,9 @@ export const links: LinksFunction = () => [
   { rel: "icon", href: "/favicon.ico" },
 ]
 
+const title = "Guilherme Lepsch"
+const subtitle = "Passionate About Code, Crafting Solutions with Heart"
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -30,30 +34,30 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>GG - The Projects</title>
-        <meta name="description" content="Force Fortran - The Force Project" />
+        <title>{`${title} - ${subtitle}`}</title>
+        <meta name="description" content={`${title} - ${subtitle}`} />
 
         <meta name="theme-color" content="#33ff33" />
-        <meta content="Force Fortran" name="application-name" />
+        <meta content={title} name="application-name" />
         <meta content="yes" name="mobile-web-app-capable" />
         <meta content="yes" name="apple-mobile-web-app-capable" />
         <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
-        <meta content="Force Fortran" name="apple-mobile-web-app-title" />
+        <meta content={title} name="apple-mobile-web-app-title" />
         <meta content="#33ff33" name="msapplication-TileColor" />
-        <meta content="https://www.lepsch.com/social.jpg" name="msapplication-TileImage" />
+        <meta content={`https://${HOSTNAME}/guilherme-lepsch.jpg`} name="msapplication-TileImage" />
         {/* <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@DucklyHQ" /> */}
-        <meta property="og:image" content="https://www.lepsch.com/social.jpg" />
-        <meta property="og:image:alt" content="Force Fortran - The Force Project" />
-        <meta property="og:image:width" content="1324" />
-        <meta property="og:image:height" content="1324" />
+        <meta property="og:image" content={`https://${HOSTNAME}/guilherme-lepsch.jpg`} />
+        <meta property="og:image:alt" content={`${title} - ${subtitle}`} />
+        <meta property="og:image:width" content="884" />
+        <meta property="og:image:height" content="881" />
         <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:locale" content="pt_PT" />
-        <meta property="og:site_name" content="Force Fortran - The Force Project" />
-        <meta property="og:url" content="https://www.lepsch.com" />
+        <meta property="og:locale" content="en_PT" />
+        <meta property="og:site_name" content={`${title} - ${subtitle}`} />
+        <meta property="og:url" content={`https://${HOSTNAME}`} />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Force Fortran - The Force Project" />
-        <meta property="og:description" content="Force Fortran - The Force Project" />
+        <meta property="og:title" content={`${title} - ${subtitle}`} />
+        <meta property="og:description" content={`${title} - ${subtitle}`} />
 
         <meta name="robots" content="index,follow" />
         <meta name="googlebot" content="index,follow" />

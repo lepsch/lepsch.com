@@ -26,6 +26,8 @@ export const links: LinksFunction = () => [
 
 const title = "Guilherme Lepsch"
 const subtitle = "Passionate About Code, Crafting Solutions with Heart"
+const description =
+  "Driven by curiosity and a love for computers, code and technology. Crafting seamless digital experiences and innovative solutions one line at a time."
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -35,7 +37,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <title>{`${title} - ${subtitle}`}</title>
-        <meta name="description" content={`${title} - ${subtitle}`} />
+        <meta name="description" content={description} />
 
         <meta name="theme-color" content="#33ff33" />
         <meta content={title} name="application-name" />
@@ -57,7 +59,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta property="og:url" content={`https://${HOSTNAME}`} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={`${title} - ${subtitle}`} />
-        <meta property="og:description" content={`${title} - ${subtitle}`} />
+        <meta property="og:description" content={description} />
 
         <meta name="robots" content="index,follow" />
         <meta name="googlebot" content="index,follow" />

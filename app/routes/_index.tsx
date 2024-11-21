@@ -1,9 +1,10 @@
 import { Link, type LinksFunction } from "react-router"
 import { Contacts, Page, Projects } from "~/componets"
 import { canonicalPath } from "~/canonical-path"
+import { BASE_URL } from "~/constants"
 import "./styles.scss"
 
-export const links: LinksFunction = () => [{ rel: "canonical", href: `https://www.lepsch.com${canonicalPath.home}` }]
+export const links: LinksFunction = () => [{ rel: "canonical", href: `${BASE_URL}${canonicalPath.home}` }]
 
 function HomePage() {
   return (

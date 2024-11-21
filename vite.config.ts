@@ -3,12 +3,12 @@ import { reactRouter } from "@react-router/dev/vite"
 import tsconfigPaths from "vite-tsconfig-paths"
 import sitemap from "vite-plugin-sitemap"
 import svgr from "vite-plugin-svgr"
+import { BASE_URL } from "./app/constants"
 
 export default defineConfig(({ command, isSsrBuild }) => ({
   plugins: [
     reactRouter({
       prerender: true,
-      // ssr: false,
     }),
     tsconfigPaths(),
     svgr({
@@ -22,7 +22,7 @@ export default defineConfig(({ command, isSsrBuild }) => ({
       include: ["**/*.svg", "**/*.svg?react"],
     }),
     sitemap({
-      hostname: "https://www.lepsch.com",
+      hostname: BASE_URL,
       exclude: ["/tarteaucitronjs"],
       outDir: "build/client",
       robots: [

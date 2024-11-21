@@ -5,9 +5,10 @@ import { Page } from "~/componets"
 import osk from "~/assets/osk.png"
 import msx from "~/assets/msx-expert.png"
 import xt from "~/assets/pc-xt.png"
+import { BASE_URL } from "~/constants"
 import "./styles.scss"
 
-export const links: LinksFunction = () => [{ rel: "canonical", href: `https://www.lepsch.com${canonicalPath.about}` }]
+export const links: LinksFunction = () => [{ rel: "canonical", href: `${BASE_URL}${canonicalPath.about}` }]
 
 function AboutPage() {
   return (

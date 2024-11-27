@@ -117,6 +117,7 @@
     "eslint-plugins.d.ts",
     "eslint.config.js",
     "patch_build.js",
+    "react-router.config.ts",
     "tarteaucitron.d.ts",
     "vite.config.ts",
     ".react-router/types/**/*"

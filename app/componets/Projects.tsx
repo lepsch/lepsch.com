@@ -6,7 +6,7 @@ export function Projects() {
   return (
     <div className="Projects">
       <Link to={`https://force.${DOMAIN}`}>FORCE - The Force Project</Link>
-      <p className="disabled">Dart Lapack (TBP)</p>
+      <Link to="https://pub.dev/packages/dart_lapack">Dart Lapack</Link>
       <p className="disabled">bezier_kit (TBP)</p>
       <p className="disabled">lz4 (TBP)</p>
       <p className="disabled">miniz (TBP)</p>

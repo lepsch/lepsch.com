@@ -28,6 +28,7 @@ const title = "Guilherme Lepsch"
 const subtitle = "Passionate About Code, Crafting Solutions with Heart"
 const description =
   "Driven by curiosity and a love for computers, code and technology. Crafting seamless digital experiences and innovative solutions one line at a time."
+const themeColor = "#33ff33"
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -39,13 +40,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <title>{`${title} - ${subtitle}`}</title>
         <meta name="description" content={description} />
 
-        <meta name="theme-color" content="#33ff33" />
+        <meta name="theme-color" content={themeColor} />
         <meta content={title} name="application-name" />
         <meta content="yes" name="mobile-web-app-capable" />
         <meta content="yes" name="apple-mobile-web-app-capable" />
         <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
         <meta content={title} name="apple-mobile-web-app-title" />
-        <meta content="#33ff33" name="msapplication-TileColor" />
+        <meta content={themeColor} name="msapplication-TileColor" />
         <meta content={`${BASE_URL}/guilherme-lepsch.jpg`} name="msapplication-TileImage" />
 
         <meta name="twitter:card" content="summary_large_image" />
